@@ -33,3 +33,27 @@ npm run test:log
 ## Evidências de Testes
 
 - Log de execução: `evidencias/teste.log` (gerado automaticamente)
+
+
+a- Há bugs? Se sim, quais são e quais são os cenários esperados?
+
+Sim, 
+
+[❌] Token expira muito rápido (10min), pode atrapalhar testes longos.
+
+[⚠️] Não há verificação de e-mail duplicado antes do login.
+
+[❌] Login aceita usuários deletados (soft delete).
+
+
+b- Se houver bugs, classifique-os em nível de criticidade.
+
+Alta: Soft delete sem impedir login → falha de segurança.
+
+Média: Token expira rápido demais para testes manuais.
+
+Baixa: Mensagens poderiam ter mais detalhes.
+
+c- Diante do cenário, o sistema está pronto para subir em produção?
+
+Não. Por conta da falha de segurança no soft delete e falta de bloqueio de login para usuários excluídos.
